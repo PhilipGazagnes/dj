@@ -13,7 +13,7 @@
     </div>
     <ul class="list">
       <li v-for="(s, index) in songs" :key="s.id" class="listItem">
-        {{ s.name }} - {{ s.artist }}
+        <span>{{ s.name }}</span> <i>{{ s.artist }}</i>
       </li>
     </ul>
   </div>
@@ -97,13 +97,22 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 100vh;
+  overflow-y: scroll;
   &Item {
     margin: 0;
-    padding: 0 10px;
+    padding: 10px;
     border-bottom: 1px solid #eee;
-    display: flex;
     &:nth-child(odd) {
       background: rgba(0, 0, 0, 0.02);
+    }
+    & > span {
+      display: block;
+    }
+    & > i {
+      opacity: 0.5;
+      font-size: 0.9em;
+      display: block;
     }
   }
 }
